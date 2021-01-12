@@ -90,9 +90,11 @@ GameObject:
   - component: {fileID: 2571072342711702880}
   - component: {fileID: 2151878257815438985}
   - component: {fileID: 2765914636595466530}
+  - component: {fileID: 6854950768124228659}
+  - component: {fileID: 2259226537439550238}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,6 +160,37 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6854950768124228659
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6179162548644162024}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 25, y: 12, z: 32}
+  m_Center: {x: 0, y: 0, z: -19}
+--- !u!114 &2259226537439550238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6179162548644162024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c2b5e041e78fa844961bec8b5433866, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dmg: 5
+  _fireRate: 2
+  _fireEffects:
+  - {fileID: 7116503761864601119}
+  - {fileID: 4617830149894518795}
+  - {fileID: 3114464383197415016}
 --- !u!1 &6778246329806307010
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,12 +279,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7594697436002752202}
-  - component: {fileID: 3170219252885720151}
-  - component: {fileID: 4033407941829816016}
   - component: {fileID: 68836766849319360}
   m_Layer: 0
   m_Name: Tower_buildInMountain
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,37 +305,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3170219252885720151
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7074620346924780656}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 30, y: 10, z: 30.59733}
-  m_Center: {x: -0.000000035005385, y: 0, z: -17.798616}
---- !u!114 &4033407941829816016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7074620346924780656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c2b5e041e78fa844961bec8b5433866, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dmg: 5
-  _fireRate: 2
-  _fireEffects:
-  - {fileID: 7116503761864601119}
-  - {fileID: 4617830149894518795}
-  - {fileID: 3114464383197415016}
 --- !u!114 &68836766849319360
 MonoBehaviour:
   m_ObjectHideFlags: 0
