@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7961760905871117387}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Platfor_floor-2lvl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 1532302786431172950}
   - component: {fileID: 4352501449950911857}
   - component: {fileID: 3636287385310118988}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube17
   m_TagString: Untagged
   m_Icon: {fileID: 0}

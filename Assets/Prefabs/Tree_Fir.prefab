@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 471828}
   - component: {fileID: 3384114}
   - component: {fileID: 2377290}
-  m_Layer: 0
-  m_Name: Fir_Tree
+  m_Layer: 10
+  m_Name: Tree_Fir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3089495838764089767}
   - component: {fileID: 4691103111474059965}
   - component: {fileID: 4122857469533892199}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8635119916402869490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Platfor_2lvl
   m_TagString: Untagged
   m_Icon: {fileID: 0}

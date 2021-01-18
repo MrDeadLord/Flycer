@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 1951946302997170076}
   - component: {fileID: 2718472936879217560}
   - component: {fileID: 624975229001062726}
-  m_Layer: 0
-  m_Name: ShipDeadBody
+  m_Layer: 10
+  m_Name: Ship_DeadBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

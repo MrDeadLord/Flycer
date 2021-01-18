@@ -11,7 +11,7 @@ namespace Flycer
         #region ==========Variables========
 
         [SerializeField] int _maxHP = 100;
-        [SerializeField] int _dmgBoost;
+        [SerializeField] int _dmgBoost = 1;
         [SerializeField] int _hpRegeneration;
         [SerializeField] AudioSource _dieSound;
         [SerializeField] GameObject _dieEffect;
@@ -56,5 +56,7 @@ namespace Flycer
         {
             _curHP -= damage;
         }
+
+        public int GetDMGBoost { get { return _dmgBoost; } }
     }
 }

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 481554}
   - component: {fileID: 3339706}
   - component: {fileID: 2355238}
-  m_Layer: 0
-  m_Name: Palm_Tree
+  m_Layer: 10
+  m_Name: Tree_Palm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
