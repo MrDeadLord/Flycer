@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using Flycer.Helpers;
 
-namespace Flycer
+namespace Flycer.Controllers
 {
-    public class Shooting : MonoBehaviour
+    public class Shooting : BaseController
     {
         #region =====Variables=====        
         [Header("Fire1")]
@@ -30,6 +30,9 @@ namespace Flycer
 
         private void Update()
         {
+            if (!Enabled)
+                return;
+
             if (Input.GetButton(Controls.Fire1.ToString()) && _canShootMain)
                 Shoot(Controls.Fire1);
             else if (Input.GetButtonDown(Controls.Fire2.ToString()) && _canShootSec)

@@ -13,6 +13,6 @@
         Fire3,
         MouseX,
         MouseY,
-        Menu
+        Pause
     }
 }

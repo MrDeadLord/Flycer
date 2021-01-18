@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using Flycer.Interface;
 
-namespace Flycer
+namespace Flycer.Controllers
 {
-    public class Tower_Fire : MonoBehaviour
+    public class Tower_Fire : BaseController
     {
         #region ==========Variables========
         enum ShellType { bullets, rockets };
@@ -45,6 +45,9 @@ namespace Flycer
 
         private void OnTriggerStay(Collider other)
         {
+            if (!Enabled)
+                return;
+
             if (other.CompareTag("Player"))
             {
                 FireUp();
