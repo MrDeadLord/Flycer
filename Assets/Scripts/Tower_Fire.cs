@@ -34,6 +34,8 @@ namespace Flycer.Controllers
             _reloadTimer = _reloadTime;
             _dmg *= GetComponentInParent<Stats>().GetDMGBoost;
 
+            _spawnPoints = new Transform[_muzzleFlash.Length];
+
             for (int i = 0; i < _muzzleFlash.Length; i++)
             {
                 _spawnPoints[i] = _muzzleFlash[i].transform;

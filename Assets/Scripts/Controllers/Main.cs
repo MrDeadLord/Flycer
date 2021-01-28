@@ -7,8 +7,8 @@ namespace Flycer.Controllers
     {
         private void Awake()
         {
-            Physics.IgnoreLayerCollision(Layers.Enemy.GetHashCode(), Layers.IgnoreRayCast.GetHashCode());
-            Physics.IgnoreLayerCollision(Layers.Player.GetHashCode(), Layers.IgnoreRayCast.GetHashCode());
+            //Disabeling collide shells with game controllers
+            Physics.IgnoreLayerCollision(Layers.Shells.GetHashCode(), Layers.GameController.GetHashCode());
         }
     }
 }

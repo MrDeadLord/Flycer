@@ -12,6 +12,7 @@ namespace Flycer
         [SerializeField] int _curDMG = 5;
         [SerializeField] ParticleSystem _metalHit;
         [SerializeField] ParticleSystem _earthHit;
+        [SerializeField] ParticleSystem _woodHit;
 
         #endregion ==========Variables========
 
