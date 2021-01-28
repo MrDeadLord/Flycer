@@ -10,23 +10,21 @@ namespace Flycer.Controllers
 
         [Header("Shooting")]
         [SerializeField] ShellType _type;
-        [SerializeField] float _force = 20;
-        [SerializeField] float _reloadTime = 1;
-        [SerializeField] int _bulletDmg = 5;
+        [SerializeField] [Tooltip("Rate of fire")] float _reloadTime = 1;
+        [SerializeField] int _dmg = 5;
+        [SerializeField] int _range = 20;
 
         [Space(10)]
         [Header("Render part")]
-        [SerializeField] Bullet _bullet;
-        [SerializeField] Transform[] _bulletSpawnPoints;
+        [SerializeField] ParticleSystem[] _muzzleFlash;
+        
         [Space(5)]
-        [SerializeField] Rigidbody _rocket;
-        [SerializeField] ParticleSystem[] _fireEffectRocket;
+        [SerializeField] [Tooltip("Rocket model if it's rocket type")] Rigidbody _rocket;
         [SerializeField] AudioSource _shootSound;
-        [SerializeField] GameObject _bulletHitEffectBullet;
 
         //private variables
         float _reloadTimer;
-        int _dmgBoost;
+        Transform[] _spawnPoints;
 
         #endregion ==========Variables========
 
@@ -34,7 +32,14 @@ namespace Flycer.Controllers
         void Start()
         {
             _reloadTimer = _reloadTime;
-            _dmgBoost = GetComponentInParent<Stats>().GetDMGBoost;
+            _dmg *= GetComponentInParent<Stats>().GetDMGBoost;
+
+            for (int i = 0; i < _muzzleFlash.Length; i++)
+            {
+                _spawnPoints[i] = _muzzleFlash[i].transform;
+            }
+
+            base.On();  //ВРЕМЕННО
         }
 
         private void FixedUpdate()
@@ -60,30 +65,23 @@ namespace Flycer.Controllers
         {
             if (_reloadTimer > _reloadTime)
             {
+                //Spawning muzzle flash
+                for (int i = 0; i < _spawnPoints.Length; i++)
+                {
+                    _muzzleFlash[i].Play();
+                }
+
+                //shootSound.Play();    //Sound
+
+                _reloadTimer = 0;   //FireRate control
+
                 if (_type == ShellType.rockets)
                 {
-                    for (int i = 0; i < _bulletSpawnPoints.Length; i++)
+                    foreach (var hole in _spawnPoints)
                     {
-                        Rigidbody bulletClone = Instantiate(_rocket, _bulletSpawnPoints[i].position, transform.rotation);
-
-                        bulletClone.velocity = transform.forward * _force;
-
-                        _fireEffectRocket[i].Play();
+                        Rigidbody bulletClone = Instantiate(_rocket, hole.position, transform.rotation);
                     }
                 }
-                else if (_type == ShellType.bullets)
-                {
-                    foreach (var hole in _bulletSpawnPoints)
-                    {
-                        var tempBull = Instantiate(_bullet, hole.position, hole.rotation);
-                        tempBull.Damage *= _dmgBoost;
-                        tempBull.Play();
-                    }
-                }
-
-                //shootSound.Play();
-
-                _reloadTimer = 0;
             }
         }
     }

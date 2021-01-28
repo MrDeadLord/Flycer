@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Flycer.Interface;
+using Flycer.Helpers;
 
 namespace Flycer
 {
@@ -9,6 +10,8 @@ namespace Flycer
         #region ==========Variables========
 
         [SerializeField] int _curDMG = 5;
+        [SerializeField] ParticleSystem _metalHit;
+        [SerializeField] ParticleSystem _earthHit;
 
         #endregion ==========Variables========
 
@@ -21,7 +24,7 @@ namespace Flycer
 
         #endregion ==========Unity-time========
 
-        private void SetDamage(ISetDamage obj)
+        void SetDamage(ISetDamage obj)
         {
             if (obj != null)
             {

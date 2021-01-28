@@ -26,13 +26,14 @@ namespace Flycer.Controllers
         private void Start()
         {
             _dmgBoost = GetComponent<Stats>().GetDMGBoost;
+            base.On();  //ВРЕМЕННО
         }
 
         private void Update()
         {
             if (!Enabled)
                 return;
-
+            
             if (Input.GetButton(Controls.Fire1.ToString()) && _canShootMain)
                 Shoot(Controls.Fire1);
             else if (Input.GetButtonDown(Controls.Fire2.ToString()) && _canShootSec)
@@ -49,7 +50,7 @@ namespace Flycer.Controllers
                     var tempBull = Instantiate(_fireEffectBullet, _barrelsMain[i].position, _barrelsMain[i].rotation);
                     tempBull.Damage *= _dmgBoost;
                     tempBull.Play();
-
+                    
                     _canShootMain = false;
                 }
                                 

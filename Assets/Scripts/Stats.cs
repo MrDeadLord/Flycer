@@ -13,6 +13,7 @@ namespace Flycer
         [SerializeField] int _maxHP = 100;
         [SerializeField] int _dmgBoost = 1;
         [SerializeField] int _hpRegeneration;
+        [SerializeField] ParticleSystem _hitEffect;
         [SerializeField] AudioSource _dieSound;
         [SerializeField] GameObject _dieEffect;
         [SerializeField] GameObject _deadBody;
@@ -42,6 +43,17 @@ namespace Flycer
         }
 
         #endregion =========Unity-time=========
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if(collision.transform.tag == "Bullet")
+            {
+                ContactPoint cont = collision.contacts[0];
+                Quaternion rot = Quaternion.FromToRotation(Vector3.up, cont.normal);
+
+                Instantiate(_hitEffect, cont.point, rot);
+            }
+        }
 
         void Death()
         {
