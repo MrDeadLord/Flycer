@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Flycer.Interface;
+using Flycer.Helpers;
 
 namespace Flycer
 {
@@ -8,12 +9,13 @@ namespace Flycer
     /// </summary>
     public class Stats : MonoBehaviour, ISetDamage
     {
-        #region ==========Variables========
+        #region ========== Variables ========
 
         [SerializeField] int _maxHP = 100;
         [SerializeField] int _dmgBoost = 1;
         [SerializeField] int _hpRegeneration;
-        [SerializeField] ParticleSystem _hitEffect;
+        [Space(5)]
+        [SerializeField] Matter _matter;
         [SerializeField] AudioSource _dieSound;
         [SerializeField] GameObject _dieEffect;
         [SerializeField] GameObject _deadBody;
@@ -24,9 +26,9 @@ namespace Flycer
         /// </summary>
         int _curHP;
 
-        #endregion ==========Variables========
+        #endregion ========== Variables ========
 
-        #region =========Unity-time=========
+        #region ========= Unity-time =========
 
         private void Start()
         {
@@ -42,18 +44,7 @@ namespace Flycer
                 Death();
         }
 
-        #endregion =========Unity-time=========
-
-        private void OnCollisionEnter(Collision collision)
-        {
-            if(collision.transform.tag == "Bullet")
-            {
-                ContactPoint cont = collision.contacts[0];
-                Quaternion rot = Quaternion.FromToRotation(Vector3.up, cont.normal);
-
-                Instantiate(_hitEffect, cont.point, rot);
-            }
-        }
+        #endregion ========= Unity-time =========
 
         void Death()
         {
@@ -69,6 +60,10 @@ namespace Flycer
             _curHP -= damage;
         }
 
+        #region ======== Public gets ========
         public int GetDMGBoost { get { return _dmgBoost; } }
+        public Matter GetMatter { get { return _matter; } }
+
+        #endregion ======== Public gets ========
     }
 }

@@ -69,9 +69,9 @@
     <Compile Include="Assets\Scripts\Controllers\BaseController.cs" />
     <Compile Include="Assets\Scripts\Controllers\CameraControl.cs" />
     <Compile Include="Assets\Scripts\Controllers\InputController.cs" />
-    <Compile Include="Assets\Scripts\Controllers\Main.cs" />
     <Compile Include="Assets\Scripts\Helpers\Controls.cs" />
-    <Compile Include="Assets\Scripts\Helpers\Layers.cs" />
+    <Compile Include="Assets\Scripts\Helpers\Layer.cs" />
+    <Compile Include="Assets\Scripts\Helpers\Matter.cs" />
     <Compile Include="Assets\Scripts\ISetDamage.cs" />
     <Compile Include="Assets\Scripts\LevelCreator.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />

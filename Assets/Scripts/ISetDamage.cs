@@ -10,7 +10,7 @@ namespace Flycer.Interface
         /// <summary>
         /// Apply damage
         /// </summary>
-        /// <param name="damage">How much</param>
+        /// <param name="damage">How much</param>      
         void ApplyDamage(int damage);
     }
 }

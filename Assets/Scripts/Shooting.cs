@@ -7,8 +7,9 @@ namespace Flycer.Controllers
     {
         #region =====Variables=====        
         [Header("Fire1")]
-        [SerializeField] Transform[] _barrelsMain;
-        [SerializeField] Bullet _fireEffectBullet;
+        [SerializeField] [Tooltip("Spawn points of main bullets")] Transform[] _barrelsMain;
+        [SerializeField] Bullet _mainBull;
+        [SerializeField] [Tooltip("Damage of main gun")] int _dmg = 5;
 
         [Space(10)] [Header("Fire2")]
         [SerializeField] Ammunition _ammoSec;
@@ -20,12 +21,13 @@ namespace Flycer.Controllers
 
         bool _canShootMain = true;
         bool _canShootSec = false;
-        int _dmgBoost;
         #endregion =====Variables=====
+
+        #region ========= Unity-time =========
 
         private void Start()
         {
-            _dmgBoost = GetComponent<Stats>().GetDMGBoost;
+            _dmg *= GetComponent<Stats>().GetDMGBoost;
             base.On();  //ВРЕМЕННО
         }
 
@@ -40,20 +42,21 @@ namespace Flycer.Controllers
                 Shoot(Controls.Fire2);
 
         }
+        #endregion ========= Unity-time =========
 
         void Shoot(Controls type)
         {
             if (type == Controls.Fire1)
             {
-                for (int i = 0; i < _barrelsMain.Length; i++)
+                foreach (var hole in _barrelsMain)
                 {
-                    var tempBull = Instantiate(_fireEffectBullet, _barrelsMain[i].position, _barrelsMain[i].rotation);
-                    tempBull.Damage *= _dmgBoost;
-                    tempBull.Play();
-                    
-                    _canShootMain = false;
+                    Bullet tempBull = Instantiate(_mainBull, hole.position, hole.rotation);
+
+                    tempBull.Damage = _dmg;
                 }
-                                
+
+                _canShootMain = false;
+                
                 Invoke("CanMain", _fireRateMain);
             }
             else if (type == Controls.Fire2)
@@ -62,8 +65,7 @@ namespace Flycer.Controllers
                 {
                     _fireEffectRocket[i].Play();
 
-                    var tempBull = Instantiate(_ammoSec, _barrelsSec[i].position, Quaternion.identity);
-                    tempBull.GetDamage *= _dmgBoost;
+                    var tempBull = Instantiate(_ammoSec, _barrelsSec[i].position, Quaternion.identity);                    
                     tempBull.Push();
 
                     _canShootSec = false;
