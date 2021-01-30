@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: _shooter
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 9221194223532463201, guid: 59543192e0ca5c04e9f73c23c9bc49a1,
+        type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 1281
+      objectReference: {fileID: 0}
     - target: {fileID: 9221194223532463203, guid: 59543192e0ca5c04e9f73c23c9bc49a1,
         type: 3}
       propertyPath: m_RootOrder
