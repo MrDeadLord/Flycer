@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Helpers\Matter.cs" />
     <Compile Include="Assets\Scripts\ISetDamage.cs" />
     <Compile Include="Assets\Scripts\LevelCreator.cs" />
+    <Compile Include="Assets\Scripts\Main.cs" />
     <Compile Include="Assets\Scripts\Movement.cs" />
     <Compile Include="Assets\Scripts\MovingForward.cs" />
     <Compile Include="Assets\Scripts\Shooting.cs" />

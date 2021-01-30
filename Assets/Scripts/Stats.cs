@@ -13,7 +13,7 @@ namespace Flycer
 
         [SerializeField] int _maxHP = 100;
         [SerializeField] int _dmgBoost = 1;
-        [SerializeField] int _hpRegeneration;
+        [SerializeField] int _hpRegeneration = 0;
         [Space(5)]
         [SerializeField] Matter _matter;
         [SerializeField] AudioSource _dieSound;

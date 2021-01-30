@@ -50,7 +50,7 @@ namespace Flycer.Controllers
             {
                 foreach (var hole in _barrelsMain)
                 {
-                    Bullet tempBull = Instantiate(_mainBull, hole.position, hole.rotation);
+                    Bullet tempBull = Instantiate(_mainBull, hole.position, hole.rotation, null);
 
                     tempBull.Damage = _dmg;
                 }

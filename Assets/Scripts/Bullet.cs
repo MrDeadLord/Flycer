@@ -9,7 +9,7 @@ namespace Flycer
     public class Bullet : MonoBehaviour
     {
         #region ========== Variables ========
-        [SerializeField] Layer _shooter;
+        
         [SerializeField] int _curDMG = 5;
 
         [Header("Hit effects")]
@@ -29,17 +29,16 @@ namespace Flycer
         private void Start()
         {
             _mainParticles = GetComponent<ParticleSystem>();
-            _collEvent = new List<ParticleCollisionEvent>();
+            _collEvent = new List<ParticleCollisionEvent>();            
         }
 
         private void OnParticleCollision(GameObject other)
         {
             SetDamage(other.GetComponent<ISetDamage>());
-
+            
             //Creating hit effect
             _mainParticles.GetCollisionEvents(other, _collEvent);
             Vector3 pos = _collEvent[0].intersection;   //hit posotion
-
             Quaternion newRot = Quaternion.Euler(transform.rotation.x, -transform.rotation.y, transform.rotation.z);
 
             switch (other.GetComponent<Stats>().GetMatter)
@@ -74,7 +73,6 @@ namespace Flycer
 
         #region ======== Public gets ========
         public int Damage { get { return _curDMG; } set { _curDMG = value; } }
-        public Layer Shooter { get { return _shooter; } set { _shooter = value; } }
         #endregion ======== Public gets ========
     }
 }
