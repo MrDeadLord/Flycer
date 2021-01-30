@@ -27,7 +27,7 @@ namespace Flycer.Controllers
         void Start()
         {
             _reloadTimer = _reloadTime;
-            _dmg *= GetComponentInParent<Stats>().GetDMGBoost;
+            _dmg *= GetComponentInParent<Stats>().diffBoost;
 
             base.On();  //ВРЕМЕННО
         }

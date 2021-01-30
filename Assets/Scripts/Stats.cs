@@ -12,7 +12,6 @@ namespace Flycer
         #region ========== Variables ========
 
         [SerializeField] int _maxHP = 100;
-        [SerializeField] int _dmgBoost = 1;
         [SerializeField] int _hpRegeneration = 0;
         [Space(5)]
         [SerializeField] Matter _matter;
@@ -26,6 +25,7 @@ namespace Flycer
         /// </summary>
         int _curHP;
 
+        public int diffBoost { get; set; }
         #endregion ========== Variables ========
 
         #region ========= Unity-time =========
@@ -61,7 +61,6 @@ namespace Flycer
         }
 
         #region ======== Public gets ========
-        public int GetDMGBoost { get { return _dmgBoost; } }
         public Matter GetMatter { get { return _matter; } }
 
         #endregion ======== Public gets ========

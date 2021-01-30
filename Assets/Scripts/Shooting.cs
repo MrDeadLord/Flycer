@@ -27,7 +27,7 @@ namespace Flycer.Controllers
 
         private void Start()
         {
-            _dmg *= GetComponent<Stats>().GetDMGBoost;
+            _dmg *= GetComponent<Stats>().diffBoost;
             base.On();  //ВРЕМЕННО
         }
 

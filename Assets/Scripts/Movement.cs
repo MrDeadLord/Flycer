@@ -10,7 +10,7 @@ namespace Flycer.Controllers
         [SerializeField] [Tooltip("Normal speed")] float _speed = 10;
 
         [Space(10)]
-        [SerializeField] [Tooltip("Main camera")] Transform _cam;
+        [SerializeField] [Tooltip("Main camera")] Transform _cam;   //need to change hight of the camera. ВРЕМЕННО
         [SerializeField] [Tooltip("Up and down Y heights")] int _heightStep = 10;
         [SerializeField] [Tooltip("How many hight levels we have")] [Range(1, 4)] int _hightsCount = 2;
 
