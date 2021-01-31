@@ -27,7 +27,8 @@ namespace Flycer.Controllers
 
         private void Start()
         {
-            _dmg *= GetComponent<Stats>().diffBoost;
+            _dmg *= Main.Instance.Difficulty;
+            Debug.Log(_dmg);
             base.On();  //ВРЕМЕННО
         }
 
@@ -51,7 +52,7 @@ namespace Flycer.Controllers
                 foreach (var hole in _barrelsMain)
                 {
                     Bullet tempBull = Instantiate(_mainBull, hole.position, hole.rotation, null);
-
+                    
                     tempBull.Damage = _dmg;
                 }
 

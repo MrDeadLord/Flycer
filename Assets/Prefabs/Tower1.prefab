@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2430359312568516098}
   m_LocalRotation: {x: -0, y: -0, z: -1, w: 6.123234e-17}
-  m_LocalPosition: {x: -1.3979988, y: 0.41000003, z: 3.93}
+  m_LocalPosition: {x: -1.3979988, y: 0.41000003, z: 2.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4481703923081646047}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4136523364656104688}
   m_LocalRotation: {x: -0, y: -0, z: -1, w: 6.123234e-17}
-  m_LocalPosition: {x: 1.3979988, y: 0.41000003, z: 3.93}
+  m_LocalPosition: {x: 1.3979988, y: 0.41000003, z: 2.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4481703923081646047}
@@ -287,7 +287,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7623518234102108394}
   m_LocalRotation: {x: -0, y: -0, z: -1, w: 6.123234e-17}
-  m_LocalPosition: {x: -1.3979988, y: -0.39100057, z: 3.93}
+  m_LocalPosition: {x: -1.3979988, y: -0.39100057, z: 2.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4481703923081646047}
@@ -317,7 +317,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8350301640879348302}
   m_LocalRotation: {x: -0, y: -0, z: -1, w: 6.123234e-17}
-  m_LocalPosition: {x: 1.3979988, y: -0.39100057, z: 3.93}
+  m_LocalPosition: {x: 1.3979988, y: -0.39100057, z: 2.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4481703923081646047}
@@ -379,7 +379,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9075578814000525488}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -36.960995, y: 8.4, z: 75.93201}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -387,7 +387,7 @@ Transform:
   - {fileID: 7293962552970913403}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &9075578814000525494
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -414,7 +414,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHP: 20
-  _dmgBoost: 1
   _hpRegeneration: 0
   _matter: 0
   _dieSound: {fileID: 0}

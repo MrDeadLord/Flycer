@@ -9,14 +9,14 @@ namespace Flycer
 
         [SerializeField] [Tooltip("Levels prefabs(plates/terrains)")] List<GameObject> _levelParts = new List<GameObject>();
         [Space(10)]
-        [SerializeField] [Tooltip("Level lenght for placing them correctly")] int _lenght = 240;
+        [SerializeField] [Tooltip("Level's lenght for placing them correctly")] int _lenght = 240;
 
         List<int> _existings = new List<int>();  //Existing plate's ids
         int n;  //id of random plate
 
         #endregion ========== Variables ========
 
-        public void Create(int count, int difficulty)
+        public void Create(int count)
         {
             n = Random.Range(0, _levelParts.Count); //Generating first
 
@@ -28,8 +28,7 @@ namespace Flycer
 
                 _existings.Add(n);
 
-                Instantiate(_levelParts[i], new Vector3(0, 0, _lenght * i), Quaternion.identity).
-                    GetComponent<Spawner>().difficulty = difficulty;
+                Instantiate(_levelParts[i], new Vector3(0, 0, _lenght * i), Quaternion.identity);
             }
         }
     }

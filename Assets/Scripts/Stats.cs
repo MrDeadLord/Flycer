@@ -24,8 +24,6 @@ namespace Flycer
         /// Current HP
         /// </summary>
         int _curHP;
-
-        public int diffBoost { get; set; }
         #endregion ========== Variables ========
 
         #region ========= Unity-time =========

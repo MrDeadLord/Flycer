@@ -8,6 +8,8 @@ namespace Flycer
         [SerializeField] [Tooltip("Level lenght")] int _platesCount = 5;
         [SerializeField] [Tooltip("Difficulty")] [Range(1, 5)] int _difLvl = 1;
 
+        public static Main Instance { get; private set; }
+
         LevelCreator _lc;
         #endregion ========== Variables ========
 
@@ -15,6 +17,8 @@ namespace Flycer
 
         private void Awake()
         {
+            Instance = this;
+
             _lc = GetComponent<LevelCreator>();
 
             NewLevel();
@@ -25,11 +29,12 @@ namespace Flycer
         #region ========== Methods ========
         public void NewLevel()
         {
-            _lc.Create(_platesCount, _difLvl);
+            _lc.Create(_platesCount);
         }
         #endregion ========== Methods ========
 
         #region ========== Publics ========
+        public int Difficulty { get { return _difLvl; } }
         #endregion ========== Publics ========
     }
 }

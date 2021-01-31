@@ -15,11 +15,10 @@ namespace Flycer
         [Space(5)]
         [SerializeField] List<GameObject> _towersBuindIn = new List<GameObject>();
 
-        public int difficulty { get; set; }
         #endregion ========== Variables ========
 
         #region ========== Unity-time ========
-        private void Start()
+        private void Awake()
         {
             Spawn(Random.Range(3, _spawnPoints.Count));
         }
@@ -50,7 +49,6 @@ namespace Flycer
 
                 GameObject newTower = Instantiate(_towers[rt], _spawnPoints[rp].position, Quaternion.identity);
 
-                newTower.GetComponent<Stats>().diffBoost = difficulty;
                 exTowers.Add(newTower.transform);
             }
         }

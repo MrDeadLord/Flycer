@@ -66,7 +66,7 @@ namespace Flycer
         void SetDamage(ISetDamage obj)
         {
             if (obj != null)
-            {
+            {                
                 obj.ApplyDamage(_curDMG);
             }
         }
