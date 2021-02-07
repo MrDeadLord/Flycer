@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
+using Flycer.Helpers;
 
-namespace Flycer
+namespace Flycer.Controllers
 {
     /// <summary>
     /// Tower & barrels rotation
     /// </summary>
-    public class Tower_SkeletControl : MonoBehaviour
+    public class Tower_SkeletControl : BaseController
     {
-        #region ==========Variables========
+        #region ========== Variables ========
         enum axis { x, y, z };
 
         [SerializeField] axis _rotateAxis;
@@ -15,7 +16,20 @@ namespace Flycer
         [SerializeField] Transform _barrels;
 
         int _barSpeed = 2;  //Speed of barrels rotation
-        #endregion ==========Variables========
+        #endregion ========== Variables ========
+
+        #region ========== Unity-time ========
+
+        private void Start()
+        {
+            base.On();
+        }
+
+        private void Update()
+        {
+            if (Input.GetButtonDown(Controls.Pause.ToString()))
+                Switch();
+        }
 
         private void OnTriggerStay(Collider target)
         {
@@ -26,14 +40,14 @@ namespace Flycer
                 Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRot, _rotateSpeed * Time.deltaTime).eulerAngles; //Smooth rotate speed. Final result
 
                 Vector3 rotationBars = Quaternion.Lerp(_barrels.rotation, lookRot, _barSpeed * Time.deltaTime).eulerAngles;  //Barrels rotation
-                                                
+
                 //rotate by choosen axis
                 switch (_rotateAxis)
                 {
                     case axis.x:
                         transform.rotation = Quaternion.Euler(rotation.x, 0, 0);
                         break;
-                    case axis.y:                        
+                    case axis.y:
                         transform.rotation = Quaternion.Euler(0, rotation.y, 0);
                         _barrels.rotation = Quaternion.Euler(rotationBars.x, rotation.y, 0);
                         break;
@@ -42,6 +56,29 @@ namespace Flycer
                         break;
                 }
             }
+        }
+        #endregion ========== Unity-time ========
+
+        void Switch()
+        {
+            if (Enabled)
+                Off();
+            else
+                On();
+        }
+
+        public override void Off()
+        {
+            base.Off();
+
+            GetComponent<Collider>().enabled = false;
+        }
+
+        public override void On()
+        {
+            base.On();
+
+            GetComponent<Collider>().enabled = true;
         }
     }
 }

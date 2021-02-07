@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Flycer.Helpers;
 
 namespace Flycer.Controllers
 {
@@ -32,8 +33,17 @@ namespace Flycer.Controllers
             base.On();  //ВРЕМЕННО
         }
 
+        private void Update()
+        {
+            if (Input.GetButtonDown(Controls.Pause.ToString()))
+                Switch();
+        }
+
         private void FixedUpdate()
         {
+            if (!Enabled)
+                return;
+
             if (_reloadTimer <= _reloadTime)
                 _reloadTimer += Time.deltaTime;
         }
@@ -66,6 +76,28 @@ namespace Flycer.Controllers
                     bulletClone.Damage = _dmg;
                 }
             }
+        }
+
+        void Switch()
+        {
+            if (Enabled)
+                Off();
+            else
+                On();
+        }
+
+        public override void Off()
+        {
+            base.Off();
+
+            GetComponent<Collider>().enabled = false;
+        }
+
+        public override void On()
+        {
+            base.On();
+
+            GetComponent<Collider>().enabled = true;
         }
     }
 }

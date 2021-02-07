@@ -6,26 +6,25 @@ namespace Flycer.Controllers
 {
     public class InputController : MonoBehaviour
     {
-        #region ==========Variables========
+        #region ========== Variables ========
         [SerializeField] Canvas _mainCanv;
         [SerializeField] Canvas _pauseCanv;
 
         [Space(10)]
-        [Header("Stuff to stop")]
+        [Header("Stuff to stop on pause")]
         [SerializeField] MovingForward _mf;
         [SerializeField] MovingForward _limiters;
         [SerializeField] Movement _movm;
         [SerializeField] Shooting _shot;
-        [SerializeField] GameObject _enemys;
-
+        
         [Space(10)]
         [Header("Buttons")]
         [SerializeField] Button _resume;
 
         bool _paused = false;
-        #endregion ==========Variables========
+        #endregion ========== Variables ========
 
-        #region ==========Unity-time========
+        #region ========== Unity-time ========
 
         private void Start()
         {
@@ -47,7 +46,7 @@ namespace Flycer.Controllers
 
             _resume.onClick.AddListener(Resume);
         }
-        #endregion ==========Unity-time========
+        #endregion ========== Unity-time ========
 
         public void Pause()
         {
@@ -56,11 +55,6 @@ namespace Flycer.Controllers
             _limiters.Off();
             _movm.Off();
             _shot.Off();
-
-            foreach(var en in _enemys.GetComponentsInChildren<Tower_Fire>())
-            {
-                en.Off();
-            }
 
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -78,12 +72,7 @@ namespace Flycer.Controllers
             _limiters.On();
             _movm.On();
             _shot.On();
-
-            foreach (var en in _enemys.GetComponentsInChildren<Tower_Fire>())
-            {
-                en.On();
-            }
-
+                        
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
 

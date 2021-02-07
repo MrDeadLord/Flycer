@@ -32,6 +32,12 @@ namespace Flycer
             _collEvent = new List<ParticleCollisionEvent>();            
         }
 
+        private void Update()
+        {
+            if (Input.GetButtonDown(Controls.Pause.ToString()))
+                Switch();
+        }
+
         private void OnParticleCollision(GameObject other)
         {
             SetDamage(other.GetComponent<ISetDamage>());
@@ -62,6 +68,15 @@ namespace Flycer
         }
 
         #endregion ========== Unity-time ========
+
+        void Switch()
+        {
+            if (!_mainParticles.isPaused)
+                _mainParticles.Pause();
+            else
+                _mainParticles.Play();
+            
+        }
 
         void SetDamage(ISetDamage obj)
         {

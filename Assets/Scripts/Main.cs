@@ -7,7 +7,8 @@ namespace Flycer
         #region ========== Variables ========
         [SerializeField] [Tooltip("Level lenght")] int _platesCount = 5;
         [SerializeField] [Tooltip("Difficulty")] [Range(1, 5)] int _difLvl = 1;
-
+        [Space]
+        [SerializeField] [Tooltip("Parrent of all enemys")] GameObject _enemys;
         public static Main Instance { get; private set; }
 
         LevelCreator _lc;
@@ -35,6 +36,7 @@ namespace Flycer
 
         #region ========== Publics ========
         public int Difficulty { get { return _difLvl; } }
+        public GameObject Enemys { get { return _enemys; } }
         #endregion ========== Publics ========
     }
 }

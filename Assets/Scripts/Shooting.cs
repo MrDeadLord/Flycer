@@ -28,7 +28,7 @@ namespace Flycer.Controllers
         private void Start()
         {
             _dmg *= Main.Instance.Difficulty;
-            Debug.Log(_dmg);
+            
             base.On();  //ВРЕМЕННО
         }
 
