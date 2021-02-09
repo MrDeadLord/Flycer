@@ -249,6 +249,7 @@ MonoBehaviour:
   _spawnPointsBuildIn:
   - {fileID: 3909999276422190787}
   _towers:
+  - {fileID: 8536344239566921460, guid: 83335980d830f334fa8b8a91a5704e37, type: 3}
   - {fileID: 9075578814000525488, guid: fce76ecdc4e5468459b9a38ce3360ac8, type: 3}
   _towersBuindIn:
   - {fileID: 7074620346924780656, guid: 17bf129e80dbd7341b5743ef1dca902c, type: 3}

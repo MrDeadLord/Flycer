@@ -11,7 +11,7 @@ namespace Flycer.Controllers
         #region ========== Variables ========
         enum axis { x, y, z };
 
-        [SerializeField] axis _rotateAxis;
+        [SerializeField] axis _rotateAxis = axis.y;
         [SerializeField] [Range(0, 1)] float _rotateSpeed = 0.5f;
         [SerializeField] Transform _barrels;
 
@@ -39,7 +39,10 @@ namespace Flycer.Controllers
                 Quaternion lookRot = Quaternion.LookRotation(dir);  //Vector3 => Quaternion
                 Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRot, _rotateSpeed * Time.deltaTime).eulerAngles; //Smooth rotate speed. Final result
 
-                Vector3 rotationBars = Quaternion.Lerp(_barrels.rotation, lookRot, _barSpeed * Time.deltaTime).eulerAngles;  //Barrels rotation
+                Vector3 rotationBars = Vector3.zero;
+
+                if (_barrels != null)
+                    rotationBars = Quaternion.Lerp(_barrels.rotation, lookRot, _barSpeed * Time.deltaTime).eulerAngles;  //Barrels rotation
 
                 //rotate by choosen axis
                 switch (_rotateAxis)
@@ -49,7 +52,8 @@ namespace Flycer.Controllers
                         break;
                     case axis.y:
                         transform.rotation = Quaternion.Euler(0, rotation.y, 0);
-                        _barrels.rotation = Quaternion.Euler(rotationBars.x, rotation.y, 0);
+                        if (_barrels != null)
+                            _barrels.rotation = Quaternion.Euler(rotationBars.x, rotation.y, 0);
                         break;
                     case axis.z:
                         transform.rotation = Quaternion.Euler(0, 0, rotation.z);

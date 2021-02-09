@@ -172,7 +172,6 @@ MonoBehaviour:
   _limiters: {fileID: 875207275}
   _movm: {fileID: 1606871046}
   _shot: {fileID: 1606871045}
-  _enemys: {fileID: 0}
   _resume: {fileID: 2031161691}
 --- !u!114 &72400265
 MonoBehaviour:

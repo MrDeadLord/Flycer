@@ -44,8 +44,10 @@ namespace Flycer
                 int rp = Random.Range(0, _spawnPoints.Count);   //Select random place
 
                 //Searching for NEW position
-                if (exTowers.Contains(_spawnPoints[rp]))
+                while (exTowers.Contains(_spawnPoints[rp]))
+                {
                     rp = Random.Range(0, _spawnPoints.Count);
+                }                    
 
                 GameObject newTower = Instantiate(_towers[rt], _spawnPoints[rp].position, Quaternion.identity);
 
