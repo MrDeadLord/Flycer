@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using Flycer.Helpers;
+using System.Collections.Generic;
 
 namespace Flycer.Controllers
 {
@@ -9,17 +10,14 @@ namespace Flycer.Controllers
         #region ========== Variables ========
         [SerializeField] Canvas _mainCanv;
         [SerializeField] Canvas _pauseCanv;
-
-        [Space(10)]
-        [Header("Stuff to stop on pause")]
-        [SerializeField] MovingForward _mf;
-        [SerializeField] MovingForward _limiters;
-        [SerializeField] Movement _movm;
-        [SerializeField] Shooting _shot;
-        
-        [Space(10)]
+                        
         [Header("Buttons")]
         [SerializeField] Button _resume;
+
+        /// <summary>
+        /// Stuff to stop on pause
+        /// </summary>
+        public List<BaseController> disablingComp = new List<BaseController>();
 
         bool _paused = false;
         #endregion ========== Variables ========
@@ -29,6 +27,8 @@ namespace Flycer.Controllers
         private void Start()
         {
             _pauseCanv.enabled = false;
+
+            _resume.onClick.AddListener(Resume);
         }
 
         private void Update()
@@ -43,18 +43,17 @@ namespace Flycer.Controllers
                 if (Input.GetButtonDown(Controls.Pause.ToString()))
                     Resume();
             }
-
-            _resume.onClick.AddListener(Resume);
         }
+
         #endregion ========== Unity-time ========
 
         public void Pause()
         {
             //Disabeling controls and moving parts
-            _mf.Off();
-            _limiters.Off();
-            _movm.Off();
-            _shot.Off();
+            foreach (var item in disablingComp)
+            {
+                item.enabled = false;
+            }
 
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -68,11 +67,11 @@ namespace Flycer.Controllers
         void Resume()
         {
             //Enabling controls and moving parts
-            _mf.On();
-            _limiters.On();
-            _movm.On();
-            _shot.On();
-                        
+            foreach (var item in disablingComp)
+            {
+                item.enabled = true;
+            }
+
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
 
@@ -81,5 +80,7 @@ namespace Flycer.Controllers
 
             _paused = false;
         }
+
+        public List<BaseController> DisablingComp { get { return disablingComp; } }
     }
 }

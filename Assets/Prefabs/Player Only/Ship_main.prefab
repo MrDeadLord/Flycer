@@ -178,7 +178,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4211955100694490178}
-  - component: {fileID: -7496812297734844074}
+  - component: {fileID: 1828935774}
   - component: {fileID: 7115354079103458808}
   - component: {fileID: 6146408093987129953}
   - component: {fileID: 5607497008604823802}
@@ -206,7 +206,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-7496812297734844074
+--- !u!114 &1828935774
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -215,13 +215,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3043154392715124773}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6dd8f3d678fa914187fbc939911215f, type: 3}
+  m_Script: {fileID: 11500000, guid: 938ef485030b1d54ca344945507ae300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 50
-  _cam: {fileID: 0}
+  _forSpeed: 0.05
+  _speedSlide: 30
+  _maxSlideX: 100
+  _maxSlideZ: 200
+  _minSlideZ: 0
   _heightStep: 20
   _hightsCount: 2
+  _cam: {fileID: 0}
 --- !u!114 &7115354079103458808
 MonoBehaviour:
   m_ObjectHideFlags: 0

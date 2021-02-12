@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Flycer.Interface;
 using Flycer.Helpers;
+using Flycer.Controllers;
 
 namespace Flycer
 {
@@ -31,6 +32,11 @@ namespace Flycer
         private void Start()
         {
             _curHP = _maxHP;
+
+            foreach (var item in GetComponents<BaseController>())
+            {
+                Main.Instance.InpContr.disablingComp.Add(item);
+            }            
         }
 
         private void FixedUpdate()

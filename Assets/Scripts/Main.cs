@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using Flycer.Controllers
+    ;
 
 namespace Flycer
 {
@@ -12,6 +14,7 @@ namespace Flycer
         public static Main Instance { get; private set; }
 
         LevelCreator _lc;
+        InputController _ic;
         #endregion ========== Variables ========
 
         #region ========== Unity-time ========
@@ -21,6 +24,7 @@ namespace Flycer
             Instance = this;
 
             _lc = GetComponent<LevelCreator>();
+            _ic = GetComponent<InputController>();
 
             NewLevel();
         }
@@ -37,6 +41,7 @@ namespace Flycer
         #region ========== Publics ========
         public int Difficulty { get { return _difLvl; } }
         public GameObject Enemys { get { return _enemys; } }
+        public InputController InpContr { get { return _ic; } }
         #endregion ========== Publics ========
     }
 }
