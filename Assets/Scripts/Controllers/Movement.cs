@@ -15,8 +15,8 @@ namespace Flycer.Controllers
         [Header("Hight level setup")]
         [SerializeField] [Tooltip("Up and down Y heights")] int _heightStep = 20;
         [SerializeField] [Tooltip("How many hight levels we have")] [Range(1, 4)] int _hightsCount = 2;
-        [SerializeField] [Tooltip("Main camera")] Transform _cam;   //need to change hight of the camera. ВРЕМЕННО
 
+        Transform _cam; //Main camera
         private Vector3 _curPos;
         float _slideX = 0;
         float _slideZ = 0;
@@ -30,6 +30,8 @@ namespace Flycer.Controllers
         {
             base.On();
             _curPos = transform.position;
+
+            _cam = Camera.main.transform;
         }
 
         private void Update()
@@ -54,7 +56,7 @@ namespace Flycer.Controllers
 
             //Moving forward
             _forSpeed += 0.01f * Time.deltaTime;
-            
+
             _minSlideZ += _forSpeed;
             _maxSlideZ += _forSpeed;
 
@@ -71,8 +73,8 @@ namespace Flycer.Controllers
             //Change the height
             if (Input.GetButtonDown(Controls.ChangePosition.ToString()))
             {
-                transform.position = transform.position + new Vector3(0, _heightStep, 0);
-                _cam.position = _cam.position + new Vector3(0, _heightStep, 0);
+                transform.position += new Vector3(0, _heightStep, 0);
+                _cam.position += new Vector3(0, _heightStep, 0);
 
                 i++;
 

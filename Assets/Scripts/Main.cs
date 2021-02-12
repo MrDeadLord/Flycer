@@ -7,14 +7,19 @@ namespace Flycer
     public class Main : MonoBehaviour
     {
         #region ========== Variables ========
+
         [SerializeField] [Tooltip("Level lenght")] int _platesCount = 5;
         [SerializeField] [Tooltip("Difficulty")] [Range(1, 5)] int _difLvl = 1;
-        [Space]
-        [SerializeField] [Tooltip("Parrent of all enemys")] GameObject _enemys;
+
+        [Header("Spawning")]
+        [SerializeField] [Tooltip("Player's prefab to spawn")] GameObject _player;
+        [SerializeField] Transform _spawnPoint;
+
         public static Main Instance { get; private set; }
 
         LevelCreator _lc;
         InputController _ic;
+
         #endregion ========== Variables ========
 
         #region ========== Unity-time ========
@@ -27,6 +32,8 @@ namespace Flycer
             _ic = GetComponent<InputController>();
 
             NewLevel();
+
+            Instantiate(_player, _spawnPoint.position, _spawnPoint.rotation);            
         }
 
         #endregion ========== Unity-time ========
@@ -40,7 +47,6 @@ namespace Flycer
 
         #region ========== Publics ========
         public int Difficulty { get { return _difLvl; } }
-        public GameObject Enemys { get { return _enemys; } }
         public InputController InpContr { get { return _ic; } }
         #endregion ========== Publics ========
     }
