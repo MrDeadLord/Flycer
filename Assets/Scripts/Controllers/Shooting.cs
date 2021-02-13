@@ -8,16 +8,16 @@ namespace Flycer.Controllers
         #region =====Variables=====        
         [Header("Fire1")]
         [SerializeField] [Tooltip("Spawn points of main bullets")] Transform[] _barrelsMain;
-        [SerializeField] Bullet _mainBull;
-        [SerializeField] [Tooltip("Damage of main gun")] int _dmg = 5;
-
-        [Space(10)] [Header("Fire2")]
-        [SerializeField] Ammunition _ammoSec;
-        [SerializeField] Transform[] _barrelsSec;
-        [SerializeField] ParticleSystem[] _fireEffectRocket;
-
+        [SerializeField] Ammunition _ammoMain;
         [SerializeField] [Range(0, 0.5f)] float _fireRateMain = 0.5f;
+
+        [Header("Fire2")]
+        [SerializeField] Transform[] _barrelsSec;
+        [SerializeField] Ammunition _ammoSec;
         [SerializeField] [Range(0.5f, 3)] float _fireRateSec = 3;
+
+        public int damageMain { get; set; }
+        public int damageSec { get; set; }
 
         bool _canShootMain = true;
         bool _canShootSec = false;
@@ -27,22 +27,30 @@ namespace Flycer.Controllers
 
         private void Start()
         {
-            _dmg *= Main.Instance.Difficulty;
-            
+            base.OnPause();
             base.On();  //ВРЕМЕННО
+
+            #region Debugging            
+            if (damageMain == 0)
+                Debug.LogError("Main Damage is zero!");
+
+            if (damageSec == 0)
+                Debug.LogError("Secondary Damage is zero!");
+            #endregion
         }
 
         private void Update()
         {
             if (!Enabled)
                 return;
-            
+
             if (Input.GetButton(Controls.Fire1.ToString()) && _canShootMain)
                 Shoot(Controls.Fire1);
             else if (Input.GetButtonDown(Controls.Fire2.ToString()) && _canShootSec)
                 Shoot(Controls.Fire2);
 
         }
+
         #endregion ========= Unity-time =========
 
         void Shoot(Controls type)
@@ -51,26 +59,25 @@ namespace Flycer.Controllers
             {
                 foreach (var hole in _barrelsMain)
                 {
-                    Bullet tempBull = Instantiate(_mainBull, hole.position, hole.rotation, null);
-                    
-                    tempBull.Damage = _dmg;
+                    Ammunition tempBull = Instantiate(_ammoMain, hole.position, hole.rotation, null);
+
+                    tempBull.Damage = damageMain;
                 }
 
                 _canShootMain = false;
-                
+
                 Invoke("CanMain", _fireRateMain);
             }
             else if (type == Controls.Fire2)
             {
-                for (int i = 0; i < _barrelsSec.Length; i++)
+                foreach (var hole in _barrelsSec)
                 {
-                    _fireEffectRocket[i].Play();
+                    Ammunition tempBull = Instantiate(_ammoSec, hole.position, hole.rotation, null);
 
-                    var tempBull = Instantiate(_ammoSec, _barrelsSec[i].position, Quaternion.identity);                    
-                    tempBull.Push();
-
-                    _canShootSec = false;
+                    tempBull.Damage = damageSec;
                 }
+
+                _canShootSec = false;
 
                 Invoke("CanSec", _fireRateSec);
             }

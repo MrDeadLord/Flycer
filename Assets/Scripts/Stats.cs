@@ -33,10 +33,10 @@ namespace Flycer
         {
             _curHP = _maxHP;
 
-            foreach (var item in GetComponents<BaseController>())
+            /*foreach (var item in GetComponents<BaseController>())
             {
-                Main.Instance.InpContr.disablingComp.Add(item);
-            }            
+                Main.Instance.InpContr.DisablingComp.Add(item);
+            }*/
         }
 
         private void FixedUpdate()
@@ -57,6 +57,13 @@ namespace Flycer
             Instantiate(_deadBody, transform.position, transform.rotation, null);
 
             Destroy(gameObject);
+
+            //Removing object from pause list
+            foreach (var item in GetComponentsInChildren<BaseController>())
+            {
+                if (Main.Instance.InpContr.DisablingComp.Contains(item))
+                    Main.Instance.InpContr.DisablingComp.Remove(item);
+            }            
         }
 
         public void ApplyDamage(int damage)

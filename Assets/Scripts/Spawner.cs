@@ -27,13 +27,16 @@ namespace Flycer
         public void Spawn(int count)
         {
             //Allways spawn all buildIn towers
-            int n = Random.Range(0, _towersBuindIn.Count);
-
-            foreach (var place in _spawnPointsBuildIn)
+            if(_spawnPointsBuildIn.Count != 0)
             {
-                Instantiate(_towersBuindIn[n], place.position, place.rotation);
-            }
+                int n = Random.Range(0, _towersBuindIn.Count);
 
+                foreach (var place in _spawnPointsBuildIn)
+                {
+                    Instantiate(_towersBuindIn[n], place.position, place.rotation);
+                }
+            }
+            
             //Spawning regular towers            
             List<Transform> exTowers = new List<Transform>();   //List of existing towers
 

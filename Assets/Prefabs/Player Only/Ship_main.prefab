@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 4211955100694490178}
   - component: {fileID: 1828935774}
   - component: {fileID: 7115354079103458808}
-  - component: {fileID: 6146408093987129953}
+  - component: {fileID: 9028688763789695031}
   - component: {fileID: 5607497008604823802}
   - component: {fileID: 6250826085710154263}
   - component: {fileID: 6956165093340331550}
@@ -218,14 +218,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 938ef485030b1d54ca344945507ae300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _forSpeed: 0.05
-  _speedSlide: 30
+  _forSpeed: 0.04
   _maxSlideX: 100
   _maxSlideZ: 200
   _minSlideZ: 0
   _heightStep: 20
   _hightsCount: 2
-  _cam: {fileID: 0}
 --- !u!114 &7115354079103458808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,17 +239,15 @@ MonoBehaviour:
   _barrelsMain:
   - {fileID: 5035018457696411857}
   - {fileID: 3991009185143863698}
-  _mainBull: {fileID: 3789948877476287743, guid: 59543192e0ca5c04e9f73c23c9bc49a1,
+  _ammoMain: {fileID: 3789948877476287743, guid: 59543192e0ca5c04e9f73c23c9bc49a1,
     type: 3}
-  _dmg: 5
-  _ammoSec: {fileID: 0}
+  _fireRateMain: 0.3
   _barrelsSec:
   - {fileID: 8793917076849117632}
   - {fileID: 44726108336305330}
-  _fireEffectRocket: []
-  _fireRateMain: 0.3
+  _ammoSec: {fileID: 0}
   _fireRateSec: 3
---- !u!114 &6146408093987129953
+--- !u!114 &9028688763789695031
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,16 +256,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 3043154392715124773}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4a6a6173c09ae74f8461e1dcaab2594, type: 3}
+  m_Script: {fileID: 11500000, guid: ab04f0bdbbcbb474f8cab09656be898d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHP: 30
+  _maxHP: 50
   _hpRegeneration: 0
   _matter: 0
   _dieSound: {fileID: 0}
   _dieEffect: {fileID: 0}
   _deadBody: {fileID: 6126221206571456006, guid: c07f7700c88c94b4984e35b62fee74a8,
     type: 3}
+  _dmgMain: 5
+  _dmgSec: 10
+  _speed: 50
+  _adility: 0
+  _abilityTime: 0
 --- !u!54 &5607497008604823802
 Rigidbody:
   m_ObjectHideFlags: 0

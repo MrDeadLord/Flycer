@@ -37,5 +37,13 @@ namespace Flycer.Controllers
         {
             _enabled = false;
         }
+
+        /// <summary>
+        /// Launch it on Start() if it needs to be paused
+        /// </summary>
+        public void OnPause()
+        {
+            Main.Instance.InpContr.DisablingComp.Add(this);
+        }
     }
 }

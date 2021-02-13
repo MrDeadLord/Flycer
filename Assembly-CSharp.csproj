@@ -65,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Ammunition.cs" />
-    <Compile Include="Assets\Scripts\Bullet.cs" />
+    <Compile Include="Assets\Scripts\BackwardDisabler.cs" />
     <Compile Include="Assets\Scripts\Controllers\BaseController.cs" />
     <Compile Include="Assets\Scripts\Controllers\CameraControl.cs" />
     <Compile Include="Assets\Scripts\Controllers\InputController.cs" />
@@ -73,13 +73,12 @@
     <Compile Include="Assets\Scripts\Controllers\Shooting.cs" />
     <Compile Include="Assets\Scripts\Controllers\Tower_Fire.cs" />
     <Compile Include="Assets\Scripts\Controllers\Tower_SkeletControl.cs" />
-    <Compile Include="Assets\Scripts\Helpers\Controls.cs" />
-    <Compile Include="Assets\Scripts\Helpers\Layer.cs" />
-    <Compile Include="Assets\Scripts\Helpers\Matter.cs" />
+    <Compile Include="Assets\Scripts\Helpers.cs" />
     <Compile Include="Assets\Scripts\ISetDamage.cs" />
     <Compile Include="Assets\Scripts\LevelCreator.cs" />
     <Compile Include="Assets\Scripts\Main.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\ShipStats.cs" />
     <Compile Include="Assets\Scripts\Spawner.cs" />
     <Compile Include="Assets\Scripts\Stats.cs" />
     <Reference Include="UnityEngine">

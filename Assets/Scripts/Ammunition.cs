@@ -1,66 +1,88 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Flycer.Interface;
+using Flycer.Helpers;
+using System.Collections.Generic;
 
 namespace Flycer
 {
-    [RequireComponent(typeof(Rigidbody))]
-    [RequireComponent(typeof(Collider))]
+    [RequireComponent(typeof(ParticleSystem))]
     public class Ammunition : MonoBehaviour
     {
-        #region ==========Variables========
+        #region ========== Variables ========
+        
+        [SerializeField] int _curDMG = 5;
 
-        [SerializeField] int _force = 10;
-        [SerializeField] int _dmg = 5;
-        [Space(5)]
-        [SerializeField] int _dieTime = 5;
-        [Space(5)]
-        [SerializeField] List<string> _ignoreTags = new List<string>();
+        [Header("Hit effects")]
+        [SerializeField] ParticleSystem _hitSteel;
+        [SerializeField] ParticleSystem _hitWood;
+        [SerializeField] ParticleSystem _hitFlesh;
+        [SerializeField] ParticleSystem _hitDirt;
+        [SerializeField] ParticleSystem _hitStone;
 
-        Rigidbody _rigBody;
+        ParticleSystem _mainParticles;
+        List<ParticleCollisionEvent> _collEvent;
 
-        #endregion ==========Variables========
+        #endregion ========== Variables ========
 
-        private void Awake()
+        #region ========== Unity-time ========
+
+        private void Start()
         {
-            _rigBody = GetComponent<Rigidbody>();
-
-            Destroy(gameObject, _dieTime);
+            _mainParticles = GetComponent<ParticleSystem>();
+            _collEvent = new List<ParticleCollisionEvent>();            
         }
 
-        private void OnTriggerEnter(Collider coll)
+        private void Update()
         {
-            if (_ignoreTags.Contains(coll.transform.tag))
-                return;
+            if(Main.Instance.InpContr.isPaused)
+                _mainParticles.Pause();
 
-            SetDamage(coll.GetComponent<ISetDamage>());
+            if (!Main.Instance.InpContr.isPaused && _mainParticles.isPaused)
+                _mainParticles.Play();
+        }
+
+        private void OnParticleCollision(GameObject other)
+        {
+            SetDamage(other.GetComponent<ISetDamage>());
             
-            Destroy(gameObject);
+            //Creating hit effect
+            _mainParticles.GetCollisionEvents(other, _collEvent);
+            Vector3 pos = _collEvent[0].intersection;   //hit posotion
+            Quaternion newRot = Quaternion.Euler(transform.rotation.x, -transform.rotation.y, transform.rotation.z);
+
+            /*switch (other.GetComponent<Stats>().GetMatter)
+            {
+                case Matter.Steel:
+                    Instantiate(_hitSteel, pos, newRot);
+                    break;
+                case Matter.Wood:
+                    Instantiate(_hitWood, pos, newRot);
+                    break;
+                case Matter.Flesh:
+                    Instantiate(_hitFlesh, pos, newRot);
+                    break;
+                case Matter.Dirt:
+                    Instantiate(_hitDirt, pos, newRot);
+                    break;
+                case Matter.Stone:
+                    Instantiate(_hitStone, pos, newRot);
+                    break;
+            }*/
         }
 
-        /// <summary>
-        /// Pushing the rigBody object forward
-        /// </summary>
-        public void Push()
-        {
-            _rigBody.AddForce(Vector3.forward * _force, ForceMode.Impulse);
-        }
+        #endregion ========== Unity-time ========
 
-        private void SetDamage(ISetDamage obj)
+
+        void SetDamage(ISetDamage obj)
         {
             if (obj != null)
-            {
-                obj.ApplyDamage(_dmg);
+            {                
+                obj.ApplyDamage(_curDMG);
             }
         }
 
-        /// <summary>
-        /// Значение урона
-        /// </summary>
-        public int GetDamage
-        {
-            get { return _dmg; }
-            set { _dmg = value; }
-        }
+        #region ======== Public gets ========
+        public int Damage { get { return _curDMG; } set { _curDMG = value; } }
+        #endregion ======== Public gets ========
     }
 }

@@ -22,13 +22,8 @@ namespace Flycer.Controllers
 
         private void Start()
         {
+            base.OnPause();
             base.On();
-        }
-
-        private void Update()
-        {
-            if (Input.GetButtonDown(Controls.Pause.ToString()))
-                Switch();
         }
 
         private void OnTriggerStay(Collider target)
@@ -62,14 +57,6 @@ namespace Flycer.Controllers
             }
         }
         #endregion ========== Unity-time ========
-
-        void Switch()
-        {
-            if (Enabled)
-                Off();
-            else
-                On();
-        }
 
         public override void Off()
         {

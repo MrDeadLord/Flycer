@@ -15,7 +15,7 @@ namespace Flycer.Controllers
 
         [Space(10)]
         [Header("Render part")]
-        [SerializeField] Bullet _shell;
+        [SerializeField] Ammunition _shell;
         [SerializeField] AudioSource _shootSound;
 
         //private variables
@@ -30,13 +30,8 @@ namespace Flycer.Controllers
             _reloadTimer = _reloadTime;
             _dmg *= Main.Instance.Difficulty;
 
+            base.OnPause();
             base.On();  //ВРЕМЕННО
-        }
-
-        private void Update()
-        {
-            if (Input.GetButtonDown(Controls.Pause.ToString()))
-                Switch();
         }
 
         private void FixedUpdate()
@@ -71,19 +66,11 @@ namespace Flycer.Controllers
 
                 foreach (var hole in _spawnPoints)
                 {
-                    Bullet bulletClone = Instantiate(_shell, hole.position, hole.rotation);
+                    Ammunition bulletClone = Instantiate(_shell, hole.position, hole.rotation);
 
                     bulletClone.Damage = _dmg;
                 }
             }
-        }
-
-        void Switch()
-        {
-            if (Enabled)
-                Off();
-            else
-                On();
         }
 
         public override void Off()

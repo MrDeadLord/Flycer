@@ -13,11 +13,8 @@ namespace Flycer.Controllers
                         
         [Header("Buttons")]
         [SerializeField] Button _resume;
-
-        /// <summary>
-        /// Stuff to stop on pause
-        /// </summary>
-        public List<BaseController> disablingComp = new List<BaseController>();
+                
+        List<BaseController> disablingComp = new List<BaseController>();
 
         bool _paused = false;
         #endregion ========== Variables ========
@@ -52,7 +49,7 @@ namespace Flycer.Controllers
             //Disabeling controls and moving parts
             foreach (var item in disablingComp)
             {
-                item.enabled = false;
+                item.Off();
             }
 
             Cursor.visible = true;
@@ -69,7 +66,7 @@ namespace Flycer.Controllers
             //Enabling controls and moving parts
             foreach (var item in disablingComp)
             {
-                item.enabled = true;
+                item.On();
             }
 
             Cursor.visible = false;
@@ -81,6 +78,11 @@ namespace Flycer.Controllers
             _paused = false;
         }
 
+        /// <summary>
+        /// Stuff to stop on pause
+        /// </summary>
         public List<BaseController> DisablingComp { get { return disablingComp; } }
+
+        public bool isPaused { get { return _paused; } }
     }
 }
