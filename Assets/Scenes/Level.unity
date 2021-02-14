@@ -169,7 +169,6 @@ MonoBehaviour:
   _mainCanv: {fileID: 150488366}
   _pauseCanv: {fileID: 590718223}
   _resume: {fileID: 2031161691}
-  disablingComp: []
 --- !u!114 &72400265
 MonoBehaviour:
   m_ObjectHideFlags: 0
