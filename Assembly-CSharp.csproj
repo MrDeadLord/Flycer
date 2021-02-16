@@ -69,10 +69,11 @@
     <Compile Include="Assets\Scripts\Controllers\BaseController.cs" />
     <Compile Include="Assets\Scripts\Controllers\CameraControl.cs" />
     <Compile Include="Assets\Scripts\Controllers\InputController.cs" />
-    <Compile Include="Assets\Scripts\Controllers\Movement.cs" />
+    <Compile Include="Assets\Scripts\Controllers\MovementPhysics.cs" />
     <Compile Include="Assets\Scripts\Controllers\Shooting.cs" />
     <Compile Include="Assets\Scripts\Controllers\Tower_Fire.cs" />
     <Compile Include="Assets\Scripts\Controllers\Tower_SkeletControl.cs" />
+    <Compile Include="Assets\Scripts\Envoirment.cs" />
     <Compile Include="Assets\Scripts\Helpers.cs" />
     <Compile Include="Assets\Scripts\ISetDamage.cs" />
     <Compile Include="Assets\Scripts\LevelCreator.cs" />

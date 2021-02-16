@@ -22,7 +22,7 @@ namespace Flycer
 
         private void Awake()
         {
-            GetComponent<Movement>().speed = _speed;
+            GetComponent<MovementPhysics>().speed = _speed;
 
             GetComponent<Shooting>().damageMain = _dmgMain;
             GetComponent<Shooting>().damageSec = _dmgSec;

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Flycer.Controllers;
 
 namespace Flycer
 {
@@ -9,10 +8,9 @@ namespace Flycer
 
         private void OnTriggerEnter(Collider coll)
         {
-            foreach (var item in coll.GetComponentsInChildren<BaseController>())
-            {
-                item.Off();
-            }
+            Debug.Log("Colided with " + coll.name);
+            if (coll.tag == "Enemy")
+                Destroy(coll.gameObject);
         }
 
         #endregion ========== Unity-time ========
