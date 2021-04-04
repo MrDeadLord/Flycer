@@ -15,46 +15,47 @@ namespace Flycer
         [Space(5)]
         [SerializeField] List<GameObject> _towersBuindIn = new List<GameObject>();
 
+        int rt; // Random tower
+        int rp; // Random place
+
         #endregion ========== Variables ========
 
-        #region ========== Unity-time ========
-        private void Awake()
+        private void Start()
         {
-            Spawn(Random.Range(3, _spawnPoints.Count));
+            Spawn(Random.Range(3, _spawnPoints.Count - 1));
         }
-        #endregion ========== Unity-time ========
 
         public void Spawn(int count)
         {
-            //Allways spawn all buildIn towers
-            if(_spawnPointsBuildIn.Count != 0)
+            // Allways spawn all buildIn towers
+            if (_spawnPointsBuildIn.Count != 0)
             {
-                int n = Random.Range(0, _towersBuindIn.Count);
+                int n = Random.Range(0, _towersBuindIn.Count - 1);
 
                 foreach (var place in _spawnPointsBuildIn)
                 {
                     Instantiate(_towersBuindIn[n], place.position, place.rotation);
                 }
             }
-            
-            //Spawning regular towers            
-            List<Transform> exTowers = new List<Transform>();   //List of existing towers
+
+            // Spawning regular towers            
+            List<Transform> exTowers = new List<Transform>();   // List of existing towers
 
             for (int i = 0; i < count; i++)
             {
 
-                int rt = Random.Range(0, _towers.Count);    //Select random tower
-                int rp = Random.Range(0, _spawnPoints.Count);   //Select random place
+                rt = Random.Range(0, _towers.Count - 1);    // Select random tower
 
                 //Searching for NEW position
-                while (exTowers.Contains(_spawnPoints[rp]))
-                {
-                    rp = Random.Range(0, _spawnPoints.Count);
-                }                    
 
-                GameObject newTower = Instantiate(_towers[rt], _spawnPoints[rp].position, Quaternion.identity);
+                do
+                    rp = Random.Range(0, _spawnPoints.Count - 1);    // Select random place
+                while
+                    (exTowers.Contains(_spawnPoints[rp]));
 
-                exTowers.Add(newTower.transform);
+                Instantiate(_towers[rt], _spawnPoints[rp].position, Quaternion.identity);
+
+                exTowers.Add(_spawnPoints[rp]);
             }
         }
     }

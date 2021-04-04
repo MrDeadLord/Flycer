@@ -50,7 +50,7 @@ namespace Flycer
 
         #endregion ========= Unity-time =========
 
-        void Death()
+        public virtual void Death()
         {
             //_dieSound.Play();
             //Instantiate(_dieEffect, transform.position, Quaternion.identity);

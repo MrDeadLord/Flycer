@@ -8,7 +8,6 @@ namespace Flycer
 
         private void OnTriggerEnter(Collider coll)
         {
-            Debug.Log("Colided with " + coll.name);
             if (coll.tag == "Enemy")
                 Destroy(coll.gameObject);
         }

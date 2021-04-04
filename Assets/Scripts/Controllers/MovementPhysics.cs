@@ -28,6 +28,7 @@ namespace Flycer.Controllers
         float _slideX = 0;
         float _slideZ = 0;
         int i = 0;  //Counter for heights
+        Vector3 finalPos;
 
         #endregion ========== Variables ========
 
@@ -41,6 +42,8 @@ namespace Flycer.Controllers
             _rigBody = GetComponent<Rigidbody>();
 
             _cam = Camera.main.transform;
+
+            finalPos = _rigBody.position;
 
             //Debugging
             if (speed == 0)
@@ -57,7 +60,7 @@ namespace Flycer.Controllers
             if (Input.GetButtonDown(Controls.ChangePosition.ToString()))
                 HeightChange();
         }
-
+                
         private void OnCollisionExit(Collision collision)
         {
             //Stopping from inertia after hiting any object
@@ -77,7 +80,7 @@ namespace Flycer.Controllers
             Vector3 velocity = new Vector3(_slideX, 0, _slideZ);
 
             //Convert to final position
-            Vector3 finalPos = _rigBody.position + velocity * speed * Time.deltaTime;
+            finalPos += velocity * speed * Time.deltaTime;
 
             //Moving forward
             _minSlideZ += _forSpeed;

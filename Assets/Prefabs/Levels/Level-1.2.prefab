@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 6495477560998008978}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Envoirment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,6 +92,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -116,6 +117,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &6495477560998008978
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -185,6 +187,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -209,6 +212,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6172247810047692369
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +223,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6837565957836313835}
   - component: {fileID: 7367653658783682904}
-  - component: {fileID: 6806068941381674208}
   m_Layer: 0
   m_Name: Level-1.2
   m_TagString: Untagged
@@ -267,24 +270,8 @@ MonoBehaviour:
   - {fileID: 5631913425177941680}
   _spawnPointsBuildIn: []
   _towers:
-  - {fileID: 267785236511194163, guid: 567dc84c0f324a34e908b4f7795c3436, type: 3}
+  - {fileID: 9201448968720031589, guid: 1acef0cc4c6593d44b2c39209b99c413, type: 3}
   - {fileID: 5116532579847273412, guid: 25b3e612dd75d714da956fb188d007e9, type: 3}
-  _towersBuindIn: []
---- !u!114 &6806068941381674208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6172247810047692369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0498ec93c8c80cc479230e2751df50c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnPoints: []
-  _spawnPointsBuildIn: []
-  _towers: []
   _towersBuindIn: []
 --- !u!1001 &798676724206692059
 PrefabInstance:

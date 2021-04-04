@@ -63,7 +63,7 @@ MonoBehaviour:
   - {fileID: 6728076381858648311}
   - {fileID: 1695854131737636679}
   _towers:
-  - {fileID: 267785236511194163, guid: 567dc84c0f324a34e908b4f7795c3436, type: 3}
+  - {fileID: 9201448968720031589, guid: 1acef0cc4c6593d44b2c39209b99c413, type: 3}
   - {fileID: 5116532579847273412, guid: 25b3e612dd75d714da956fb188d007e9, type: 3}
   _towersBuindIn:
   - {fileID: 7074620346924780656, guid: 17bf129e80dbd7341b5743ef1dca902c, type: 3}
@@ -116,7 +116,7 @@ GameObject:
   m_Layer: 9
   m_Name: Spawn position buildin 1
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -146,7 +146,7 @@ GameObject:
   m_Layer: 9
   m_Name: Spawn position buildin
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 7863090162959532124}
   m_Layer: 10
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Envoirment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -220,6 +220,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -244,6 +245,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &7863090162959532124
 MeshCollider:
   m_ObjectHideFlags: 0

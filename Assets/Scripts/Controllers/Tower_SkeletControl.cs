@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Flycer.Helpers;
 
 namespace Flycer.Controllers
 {
@@ -16,6 +15,7 @@ namespace Flycer.Controllers
         [SerializeField] Transform _barrels;
 
         int _barSpeed = 2;  //Speed of barrels rotation
+        Vector3 rotationBars = Vector3.zero;
         #endregion ========== Variables ========
 
         #region ========== Unity-time ========
@@ -30,14 +30,12 @@ namespace Flycer.Controllers
         {
             if (target.CompareTag("Player"))
             {
-                Vector3 dir = target.transform.position - transform.position;   //direction where to look
-                Quaternion lookRot = Quaternion.LookRotation(dir);  //Vector3 => Quaternion
+                Vector3 dir = target.transform.position - transform.position;   // Direction where to look
+                Quaternion lookRot = Quaternion.LookRotation(dir);  // Vector3 => Quaternion                
                 Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRot, _rotateSpeed * Time.deltaTime).eulerAngles; //Smooth rotate speed. Final result
-
-                Vector3 rotationBars = Vector3.zero;
-
+                
                 if (_barrels != null)
-                    rotationBars = Quaternion.Lerp(_barrels.rotation, lookRot, _barSpeed * Time.deltaTime).eulerAngles;  //Barrels rotation
+                    rotationBars = Quaternion.Lerp(_barrels.rotation, lookRot, _barSpeed * Time.deltaTime).eulerAngles;  // Barrels rotation
 
                 //rotate by choosen axis
                 switch (_rotateAxis)

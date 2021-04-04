@@ -58,8 +58,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5588392424241680788}
   - {fileID: 854796501823444442}
+  - {fileID: 5588392424241680788}
   - {fileID: 544952350194397656}
   - {fileID: 622557811457867732}
   - {fileID: 6324021681088674018}
@@ -96,7 +96,7 @@ MonoBehaviour:
   - {fileID: 544952350194397656}
   - {fileID: 622557811457867732}
   _towers:
-  - {fileID: 267785236511194163, guid: 567dc84c0f324a34e908b4f7795c3436, type: 3}
+  - {fileID: 9201448968720031589, guid: 1acef0cc4c6593d44b2c39209b99c413, type: 3}
   - {fileID: 5116532579847273412, guid: 25b3e612dd75d714da956fb188d007e9, type: 3}
   _towersBuindIn:
   - {fileID: 7074620346924780656, guid: 17bf129e80dbd7341b5743ef1dca902c, type: 3}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 3415982905796584005}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Envoirment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,11 +127,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3115610899089295278}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 175}
+  m_LocalPosition: {x: 0, y: 0, z: 175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1482684298995624069}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4369699557316799135
 MeshFilter:
@@ -156,6 +156,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -180,6 +181,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &3415982905796584005
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -278,7 +280,7 @@ PrefabInstance:
     - target: {fileID: 5554237624359567846, guid: 6e05f777358d12142b52dd7fed0dbd3b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5554237624359567846, guid: 6e05f777358d12142b52dd7fed0dbd3b,
         type: 3}

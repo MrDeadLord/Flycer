@@ -43,7 +43,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 11
+  serializedVersion: 12
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -118,6 +118,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
@@ -186,6 +188,7 @@ MonoBehaviour:
   - {fileID: 6172247810047692369, guid: 4d69409e728c7e646a899390fd15f006, type: 3}
   - {fileID: 4135210031388199919, guid: 66d5f0f8575ee044d8c6c0fece11025e, type: 3}
   - {fileID: 2294686467414209087, guid: 0a264b45028980f42aff6456c74d57cf, type: 3}
+  - {fileID: 6003259461116156593, guid: 1ae123b801028684ab4cd2368859e5bb, type: 3}
   _lenght: 350
 --- !u!114 &72400266
 MonoBehaviour:
@@ -199,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2a8d0904850454489dfbfd98d1e6262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _platesCount: 2
+  _platesCount: 3
   _difLvl: 1
   _player: {fileID: 3043154392715124773, guid: 63e97eedf48522a4fadc5dd1f16e6ed6, type: 3}
   _spawnPoint: {fileID: 807113052}
@@ -230,14 +233,14 @@ RectTransform:
   m_GameObject: {fileID: 87588572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.6819, y: 2.6819, z: 2.6819}
   m_Children: []
   m_Father: {fileID: 150488363}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 66, y: 71}
+  m_AnchoredPosition: {x: 170, y: 175}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &87588574
@@ -255,6 +258,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -355,6 +359,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &150488366
 Canvas:
   m_ObjectHideFlags: 0
@@ -485,6 +490,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &590718223
 Canvas:
   m_ObjectHideFlags: 0
@@ -608,14 +614,14 @@ RectTransform:
   m_GameObject: {fileID: 855362628}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.1534, y: 2.1534, z: 2.1534}
   m_Children: []
   m_Father: {fileID: 590718220}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 98.5}
+  m_AnchoredPosition: {x: 0, y: 260}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &855362630
@@ -633,6 +639,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -817,14 +824,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207267525}
-  m_LocalRotation: {x: 0.45399433, y: -0, z: -0, w: 0.89100456}
-  m_LocalPosition: {x: 0, y: 54.9, z: 0.4}
+  m_LocalRotation: {x: 0.22057883, y: -0, z: -0, w: 0.9753692}
+  m_LocalPosition: {x: 0, y: 34.1, z: -27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2034142798}
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 54.000004, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 25.486002, y: 0, z: 0}
 --- !u!114 &1207267530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -853,6 +860,7 @@ MonoBehaviour:
   m_StopNaN: 0
   m_Dithering: 0
   m_ClearDepth: 1
+  m_AllowXRRendering: 1
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
@@ -932,6 +940,7 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!4 &1646220989
@@ -976,7 +985,7 @@ RectTransform:
   m_GameObject: {fileID: 2031161688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5835, y: 2.5835, z: 2.5835}
   m_Children:
   - {fileID: 2059953379}
   m_Father: {fileID: 590718220}
@@ -1001,6 +1010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1045,6 +1055,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1092,9 +1103,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2034142797}
-  m_LocalRotation: {x: -0.45399436, y: -0, z: -0, w: 0.8910046}
-  m_LocalPosition: {x: 0, y: -29.861773, z: 27.633753}
-  m_LocalScale: {x: 223.54501, y: 111.675, z: 5}
+  m_LocalRotation: {x: -0.2205788, y: -0, z: -0, w: 0.9753692}
+  m_LocalPosition: {x: 0, y: -22.003853, z: -1.807848}
+  m_LocalScale: {x: 223.54501, y: 111.67502, z: 5}
   m_Children: []
   m_Father: {fileID: 1207267528}
   m_RootOrder: 0
@@ -1206,6 +1217,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
